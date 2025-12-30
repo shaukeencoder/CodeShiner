@@ -1,747 +1,679 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Sonam Rawal | Science Teacher Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #050816;
-      --bg-elevated: #0b1020;
-      --card: #111827;
-      --accent: #22c55e;
-      --accent-soft: rgba(34, 197, 94, 0.12);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --border-subtle: rgba(148, 163, 184, 0.3);
-      --radius-lg: 1.5rem;
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.8);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Poppins", system-ui, -apple-system, sans-serif;
-      background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
-      color: var(--text-main);
-      -webkit-font-smoothing: antialiased;
-      scroll-behavior: smooth;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
-    }
-
-    /* TOP NAV */
-    header {
-      position: sticky;
-      top: 0.75rem;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(
-        to right,
-        rgba(15, 23, 42, 0.96),
-        rgba(15, 23, 42, 0.7)
-      );
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      padding: 0.6rem 1.4rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-    }
-
-    .avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 0, #22c55e, #0ea5e9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #e5e7eb;
-      box-shadow: 0 0 0 2px #020617;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.15;
-    }
-
-    .brand-text span:first-child {
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .brand-text span:last-child {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    nav {
-      display: flex;
-      gap: 0.6rem;
-      font-size: 0.8rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    nav a {
-      padding: 0.3rem 0.85rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      background: rgba(15, 23, 42, 0.7);
-      color: var(--text-muted);
-      transition: 0.2s ease-out;
-    }
-
-    nav a:hover {
-      border-color: rgba(148, 163, 184, 0.8);
-      color: var(--text-main);
-      background: rgba(15, 23, 42, 0.98);
-    }
-
-    .nav-primary {
-      border-color: rgba(34, 197, 94, 0.7);
-      background: radial-gradient(circle at top, rgba(34, 197, 94, 0.3), rgba(15, 23, 42, 0.95));
-      color: #ecfdf5;
-    }
-
-    /* LAYOUT */
-    main {
-      margin-top: 1.8rem;
-      display: grid;
-      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.4fr);
-      gap: 1.6rem;
-    }
-
-    /* HERO */
-    .hero {
-      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.12), transparent 60%),
-                  radial-gradient(circle at 100% 0, rgba(56, 189, 248, 0.16), transparent 60%),
-                  #0b1120;
-      border-radius: var(--radius-lg);
-      padding: 1.9rem 1.7rem;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.2rem 0.75rem 0.2rem 0.25rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: rgba(15, 23, 42, 0.8);
-      font-size: 0.72rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-dot {
-      width: 20px;
-      height: 20px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 0, #22c55e, #0ea5e9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      box-shadow: 0 0 0 2px #020617;
-    }
-
-    .hero-name {
-      font-size: clamp(2rem, 3vw + 1rem, 2.5rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.2rem;
-    }
-
-    .hero-role {
-      font-size: 1rem;
-      font-weight: 500;
-      color: #bbf7d0;
-      margin-bottom: 1rem;
-    }
-
-    .hero-summary {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      max-width: 36rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-bottom: 1.3rem;
-      font-size: 0.78rem;
-    }
-
-    .meta-pill {
-      padding: 0.32rem 0.75rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.92);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      display: inline-flex;
-      gap: 0.35rem;
-      align-items: center;
-    }
-
-    .meta-label {
-      font-weight: 500;
-      color: #e5e7eb;
-    }
-
-    .meta-text {
-      color: var(--text-muted);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.55rem 1.15rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: 0.2s ease-out;
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: linear-gradient(to right, #22c55e, #16a34a);
-      color: #ecfdf5;
-      box-shadow: 0 14px 30px rgba(22, 163, 74, 0.45);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px) scale(1.01);
-      box-shadow: 0 18px 40px rgba(22, 163, 74, 0.65);
-    }
-
-    .btn-ghost {
-      background: rgba(15, 23, 42, 0.95);
-      color: var(--text-main);
-      border-color: rgba(148, 163, 184, 0.7);
-    }
-
-    .btn-ghost:hover {
-      background: #020617;
-      border-color: rgba(248, 250, 252, 0.9);
-    }
-
-    .btn-icon {
-      font-size: 0.95rem;
-    }
-
-    /* RIGHT COLUMN */
-    .column-right {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: var(--radius-lg);
-      padding: 1.1rem 1.25rem;
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.9);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(34, 197, 94, 0.15), transparent 55%);
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    .card-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .section-label {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--text-muted);
-      margin-bottom: 0.1rem;
-    }
-
-    .section-title {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: #f9fafb;
-      margin-bottom: 0.55rem;
-    }
-
-    .section-body {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    .chips-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.7rem;
-    }
-
-    .chip {
-      font-size: 0.7rem;
-      padding: 0.25rem 0.65rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.96);
-      color: #e5e7eb;
-    }
-
-    /* TIMELINE */
-    .timeline {
-      border-left: 1px solid rgba(75, 85, 99, 0.9);
-      padding-left: 0.95rem;
-      margin-top: 0.5rem;
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 0.75rem;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -1.2rem;
-      top: 0.18rem;
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 20% 0, #22c55e, #0ea5e9);
-      box-shadow: 0 0 0 2px #020617;
-    }
-
-    .timeline-role {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #f9fafb;
-    }
-
-    .timeline-meta {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-bottom: 0.15rem;
-    }
-
-    .timeline-desc {
-      font-size: 0.74rem;
-      color: #9ca3af;
-    }
-
-    /* TWO COLUMN GRIDS */
-    .two-col {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.65rem;
-      margin-top: 0.6rem;
-      font-size: 0.75rem;
-    }
-
-    .info-label {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .info-value {
-      margin-top: 0.1rem;
-      color: #e5e7eb;
-    }
-
-    .highlight-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-top: 0.6rem;
-    }
-
-    .highlight {
-      flex: 1 1 130px;
-      background: rgba(15, 23, 42, 0.96);
-      border-radius: 0.9rem;
-      padding: 0.5rem 0.65rem;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-    }
-
-    .highlight-label {
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .highlight-value {
-      margin-top: 0.1rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #bbf7d0;
-    }
-
-    .contact-link {
-      color: #a5f3fc;
-      text-decoration: none;
-    }
-
-    .contact-link:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0.75rem 1.25rem 1.75rem;
-      font-size: 0.7rem;
-      display: flex;
-      justify-content: space-between;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-      color: rgba(148, 163, 184, 0.85);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      main {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      header {
-        border-radius: 1rem;
-      }
-    }
-
-    @media (max-width: 640px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav {
-        justify-content: flex-start;
-      }
-      .hero {
-        padding: 1.4rem 1.2rem;
-      }
-      .two-col {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sonam Rawal - Integrated Science Facilitator | B.Ed. Student Teacher | CTET Qualified with 116 Marks">
+<meta name="keywords" content="science teacher, educator, B.Ed., CTET, biology, Delhi">
+<meta property="og:title" content="Sonam Rawal - Integrated Science Facilitator">
+<meta property="og:description" content="Technologically adept educator with 21st-century ICT skills and passion for innovation">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0d1117">
+<title>Sonam Rawal - Integrated Science Facilitator</title>
+<style>
+:root{--bg:#0a1628;--text:#e6f1ff;--accent:#64ffda;--green:#7ee787;--card:#112240;--border:#233554;--glow:rgba(100,255,218,0.4);--purple:#c792ea;--orange:#ffab70}
+[data-theme="light"]{--bg:#f8f9fa;--text:#1a202c;--accent:#38b2ac;--green:#48bb78;--card:#ffffff;--border:#e2e8f0;--glow:rgba(56,178,172,0.3);--purple:#9f7aea}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;transition:background 0.3s,color 0.3s}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+header{position:fixed;top:0;width:100%;background:transparent;z-index:1000;transition:background 0.3s,backdrop-filter 0.3s}
+header.scrolled{background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);box-shadow:0 2px 10px rgba(0,0,0,0.3)}
+[data-theme="light"] header.scrolled{background:rgba(255,255,255,0.95)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px;max-width:1200px;margin:0 auto}
+.logo{font-family:'SF Mono','Fira Code',monospace;font-size:24px;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:2px}
+.nav-links{display:flex;gap:30px;list-style:none;align-items:center}
+.nav-links a{color:var(--text);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.3s;position:relative}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:var(--accent);transition:width 0.3s}
+.nav-links a.active::after{width:100%}
+.theme-toggle{background:none;border:none;color:var(--text);font-size:20px;cursor:pointer;padding:5px;transition:color 0.3s,transform 0.3s}
+.theme-toggle:hover{color:var(--accent);transform:rotate(15deg)}
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px}
+.hamburger span{width:25px;height:3px;background:var(--text);transition:0.3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(8px,8px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:100px 0 50px}
+.code-rain{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.15}
+.hero-content{text-align:center;z-index:1;position:relative;max-width:900px}
+.hero-greeting{font-size:clamp(16px,2vw,20px);color:var(--accent);margin-bottom:15px;font-family:'SF Mono',monospace}
+.hero-title{font-size:clamp(40px,8vw,80px);font-weight:700;margin-bottom:20px;line-height:1.1}
+.hero-title .name{background:linear-gradient(135deg,var(--accent),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-subtitle{font-size:clamp(20px,3vw,32px);color:var(--green);margin-bottom:20px;font-weight:600}
+.hero-description{font-size:clamp(16px,2vw,18px);opacity:0.8;max-width:700px;margin:0 auto 40px;line-height:1.8}
+.hero-cta{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 32px;background:var(--accent);color:var(--bg);text-decoration:none;border-radius:8px;font-weight:600;transition:transform 0.3s,box-shadow 0.3s;border:none;cursor:pointer;font-size:16px}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 25px var(--glow)}
+.btn-outline{background:transparent;border:2px solid var(--accent);color:var(--accent)}
+.btn-outline:hover{background:var(--accent);color:var(--bg)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:60px;max-width:900px;margin-left:auto;margin-right:auto}
+@media(max-width:768px){
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+}
+.stat-card{text-align:center;padding:20px}
+.stat-number{font-size:36px;font-weight:700;color:var(--green);font-family:'SF Mono',monospace;margin-bottom:8px}
+.stat-label{font-size:14px;opacity:0.8}
+section{padding:100px 0;position:relative}
+.section-header{text-align:center;margin-bottom:60px}
+.section-tag{display:inline-block;padding:8px 20px;background:var(--card);border:1px solid var(--border);border-radius:20px;font-size:14px;color:var(--accent);margin-bottom:15px;font-family:'SF Mono',monospace}
+.section-title{font-size:clamp(32px,5vw,48px);font-weight:700;margin-bottom:20px}
+.section-subtitle{font-size:18px;opacity:0.7;max-width:600px;margin:0 auto}
+.about-content{display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:start}
+.about-image{position:relative}
+.profile-photo{width:100%;max-width:350px;aspect-ratio:1;border-radius:20px;background:linear-gradient(135deg,var(--accent),var(--purple));display:flex;align-items:center;justify-content:center;font-size:120px;box-shadow:0 20px 60px var(--glow);transition:transform 0.3s;overflow:hidden;position:relative}
+.profile-photo:hover{transform:scale(1.05) rotate(2deg)}
+.profile-photo img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}
+.profile-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:120px;background:linear-gradient(135deg,#38b2ac 0%,#4299e1 50%,#9f7aea 100%);position:relative}
+.profile-placeholder::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.2),transparent);pointer-events:none}
+.about-text h3{font-size:28px;margin-bottom:20px;color:var(--accent)}
+.about-text p{margin-bottom:20px;line-height:1.8;opacity:0.9}
+.contact-info{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:25px;margin-top:30px}
+.contact-item{display:flex;align-items:center;gap:15px;margin-bottom:15px;font-size:15px}
+.contact-item:last-child{margin-bottom:0}
+.contact-icon{font-size:20px;color:var(--accent)}
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+@media(max-width:768px){
+.skills-grid{grid-template-columns:1fr}
+}
+.skill-category{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:30px;transition:transform 0.3s,box-shadow 0.3s}
+.skill-category:hover{transform:translateY(-5px);box-shadow:0 10px 30px var(--glow)}
+.skill-category h3{font-size:22px;margin-bottom:20px;color:var(--accent);display:flex;align-items:center;gap:10px}
+.skill-category h3::before{content:'';width:4px;height:24px;background:var(--green);border-radius:2px}
+.skill-list{list-style:none}
+.skill-item{padding:12px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.skill-item:last-child{border-bottom:none}
+.skill-level{font-size:12px;padding:4px 12px;background:var(--accent);color:var(--bg);border-radius:12px;font-weight:600}
+.education-timeline{max-width:900px;margin:0 auto;position:relative;padding-left:50px}
+.education-timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),var(--green))}
+.timeline-item{position:relative;margin-bottom:50px;opacity:0;transform:translateX(-30px);transition:opacity 0.6s,transform 0.6s}
+.timeline-item.revealed{opacity:1;transform:translateX(0)}
+.timeline-dot{position:absolute;left:-30px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);box-shadow:0 0 0 4px var(--card);z-index:1}
+.timeline-content{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:30px;transition:transform 0.3s,box-shadow 0.3s}
+.timeline-content:hover{transform:translateX(10px);box-shadow:0 10px 30px var(--glow)}
+.timeline-year{display:inline-block;padding:6px 16px;background:var(--accent);color:var(--bg);border-radius:20px;font-size:13px;font-weight:700;margin-bottom:12px}
+.timeline-degree{font-size:24px;font-weight:700;margin-bottom:10px;color:var(--green)}
+.timeline-institution{font-size:16px;opacity:0.8;margin-bottom:15px}
+.timeline-details{margin-top:15px;padding-top:15px;border-top:1px solid var(--border)}
+.timeline-details p{margin-bottom:8px;font-size:15px}
+.timeline-details strong{color:var(--accent)}
+.achievements-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.achievement-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:25px;transition:transform 0.3s,box-shadow 0.3s;position:relative;overflow:hidden}
+.achievement-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,var(--accent),var(--green))}
+.achievement-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px var(--glow)}
+.achievement-icon{font-size:32px;margin-bottom:15px}
+.achievement-title{font-size:18px;font-weight:600;margin-bottom:10px;color:var(--text)}
+.achievement-desc{font-size:14px;opacity:0.8;line-height:1.6}
+.hobbies-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:25px;max-width:900px;margin:0 auto}
+.hobby-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:30px;text-align:center;transition:transform 0.3s,box-shadow 0.3s}
+.hobby-card:hover{transform:scale(1.05);box-shadow:0 10px 30px var(--glow)}
+.hobby-icon{font-size:48px;margin-bottom:15px}
+.hobby-name{font-size:18px;font-weight:600}
+.contact-section{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:60px;max-width:800px;margin:0 auto}
+.contact-form{display:flex;flex-direction:column;gap:25px}
+.form-group{display:flex;flex-direction:column;gap:10px}
+.form-group label{font-weight:600;font-size:14px;color:var(--accent)}
+.form-group input,.form-group textarea{background:var(--bg);border:2px solid var(--border);color:var(--text);padding:14px;border-radius:8px;font-family:inherit;font-size:15px;transition:border-color 0.3s,box-shadow 0.3s}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--glow)}
+.form-group textarea{resize:vertical;min-height:150px}
+.social-links{display:flex;gap:20px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+.social-link{display:flex;align-items:center;gap:10px;padding:12px 24px;background:var(--bg);border:2px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;transition:all 0.3s;font-weight:500}
+.social-link:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px);box-shadow:0 5px 20px var(--glow)}
+.social-icon{font-size:20px}
+footer{text-align:center;padding:40px 20px;border-top:1px solid var(--border);margin-top:100px;opacity:0.7}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s,transform 0.6s}
+.reveal.revealed{opacity:1;transform:translateY(0)}
+.fade-in{animation:fadeIn 1s ease-in}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){
+.nav-links{position:fixed;top:70px;left:0;width:100%;background:var(--bg);flex-direction:column;padding:30px 20px;transform:translateY(-200%);opacity:0;transition:transform 0.3s,opacity 0.3s;border-bottom:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,0.3)}
+.nav-links.active{transform:translateY(0);opacity:1}
+.hamburger{display:flex}
+.about-content{grid-template-columns:1fr;gap:40px}
+.profile-photo{max-width:250px;margin:0 auto}
+.hero-cta{flex-direction:column;align-items:center}
+.btn{width:100%;max-width:300px;text-align:center}
+.education-timeline{padding-left:30px}
+.timeline-dot{left:-20px}
+.timeline-content:hover{transform:translateX(5px)}
+.contact-section{padding:30px 20px}
+}
+</style>
 </head>
 <body>
-<div class="page">
-  <!-- NAV -->
-  <header>
-    <div class="brand">
-      <div class="avatar">S</div>
-      <div class="brand-text">
-        <span>Sonam Rawal</span>
-        <span>Science Teacher Portfolio</span>
-      </div>
-    </div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#teaching">Teaching</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#contact" class="nav-primary">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <!-- HERO -->
-    <section class="hero" id="about">
-      <div class="hero-badge">
-        <div class="hero-dot">📚</div>
-        <span>Aspiring School Teacher · Science (Biology)</span>
-      </div>
-
-      <h1 class="hero-name">Sonam Rawal</h1>
-      <div class="hero-role">Student-focused, concept-driven Science educator</div>
-
-      <p class="hero-summary">
-        I’m an aspiring school teacher with a strong academic foundation in Biological Sciences
-        and ongoing professional training through B.Ed. I enjoy turning complex ideas into simple,
-        relatable concepts and designing lessons that are structured, interactive and exam ready.
-      </p>
-
-      <div class="hero-meta">
-        <div class="meta-pill">
-          <span class="meta-label">Location</span>
-          <span class="meta-text">Sagarpur, South West Delhi</span>
-        </div>
-        <div class="meta-pill">
-          <span class="meta-label">Focus</span>
-          <span class="meta-text">Biology · General Science (6–10)</span>
-        </div>
-        <div class="meta-pill">
-          <span class="meta-label">Current</span>
-          <span class="meta-text">B.Ed. (2nd Year), SCERT – GGSIPU</span>
-        </div>
-      </div>
-
-      <div class="hero-actions">
-        <a href="mailto:sonamrawal11@gmail.com" class="btn btn-primary">
-          <span class="btn-icon">✉️</span>
-          <span>Invite for interaction / demo class</span>
-        </a>
-        <a href="Sonam_Rawal_Teacher_Resume.pdf" class="btn btn-ghost">
-          <span class="btn-icon">📄</span>
-          <span>Download resume (PDF)</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- RIGHT COLUMN -->
-    <section class="column-right">
-      <!-- TEACHING STYLE -->
-      <div class="card" id="teaching">
-        <div class="card-inner">
-          <div class="section-label">Teaching Profile</div>
-          <div class="section-title">How I Teach</div>
-          <p class="section-body">
-            My classroom approach is concept-first and student-centric. I break topics into clear,
-            manageable ideas, use diagrams and real-life examples, and then connect them with
-            textbook exercises and exam questions. I believe in a calm, encouraging atmosphere
-            where students feel free to ask “why?” and “how?”.
-          </p>
-          <div class="chips-row">
-            <span class="chip">Concept-based teaching</span>
-            <span class="chip">Activity & discussion</span>
-            <span class="chip">Clear board work</span>
-            <span class="chip">Continuous revision</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- STRENGTHS / SUBJECTS -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="section-label">Subjects & Strengths</div>
-          <div class="section-title">What I Bring to the Classroom</div>
-
-          <div class="two-col">
-            <div>
-              <div class="info-label">Subject Expertise</div>
-              <div class="info-value">
-                Biology (Cell Biology, Genetics, Human Physiology, Ecology)<br />
-                General Science (Classes 6–10)
-              </div>
-            </div>
-            <div>
-              <div class="info-label">Pedagogical Skills</div>
-              <div class="info-value">
-                Lesson planning · Activity-based learning · Classroom management ·
-                Assessments & feedback
-              </div>
-            </div>
-          </div>
-
-          <div class="chips-row" style="margin-top: 0.8rem;">
-            <span class="chip">Strong communication</span>
-            <span class="chip">Organised & reliable</span>
-            <span class="chip">Student-centric & empathetic</span>
-            <span class="chip">Uses visual / AV teaching aids</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- CONTACT & HIGHLIGHTS -->
-      <div class="card" id="contact">
-        <div class="card-inner">
-          <div class="section-label">Contact & Highlights</div>
-          <div class="section-title">Let’s Connect</div>
-
-          <div class="highlight-row">
-            <div class="highlight">
-              <div class="highlight-label">Academic Rank</div>
-              <div class="highlight-value">2nd Rank – University</div>
-            </div>
-            <div class="highlight">
-              <div class="highlight-label">Degree</div>
-              <div class="highlight-value">B.Sc (H) Biological Science</div>
-            </div>
-            <div class="highlight">
-              <div class="highlight-label">Leadership</div>
-              <div class="highlight-value">Vice President – Dept. Society</div>
-            </div>
-          </div>
-
-          <div class="two-col" style="margin-top: 0.8rem;">
-            <div>
-              <div class="info-label">Email</div>
-              <div class="info-value">
-                <a href="mailto:sonamrawal11@gmail.com" class="contact-link">sonamrawal11@gmail.com</a>
-              </div>
-            </div>
-            <div>
-              <div class="info-label">Phone</div>
-              <div class="info-value">+91 88009 11258</div>
-            </div>
-            <div>
-              <div class="info-label">Base Location</div>
-              <div class="info-value">Sagarpur, South West Delhi</div>
-            </div>
-            <div>
-              <div class="info-label">Languages</div>
-              <div class="info-value">English · Hindi</div>
-            </div>
-          </div>
-
-          <div style="margin-top: 0.8rem; font-size: 0.75rem; color: var(--text-muted);">
-            Open to: School teaching roles (Science), foundation batches, and mentoring students for strong basics in Biology.
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- EXPERIENCE & EDUCATION FULL WIDTH -->
-  <section style="margin-top: 1.7rem; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr); gap: 1rem;" id="experience">
-    <!-- EXPERIENCE -->
-    <div class="card">
-      <div class="card-inner">
-        <div class="section-label">Teaching & Academic Experience</div>
-        <div class="section-title">On-ground Exposure</div>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-role">Preliminary School Engagement – PSE I & II</div>
-            <div class="timeline-meta">
-              Govt. Co-ed Sr. Sec. School, Dwarka Sec-16A · Govt. Sarvodaya Vidyalaya (Jose Marti), R.K. Puram
-            </div>
-            <div class="timeline-desc">
-              Assisted teachers in lesson delivery, science activities and classroom management.
-              Conducted small-group learning, supported students in doubt clearing, and helped organise
-              co-curricular activities focused on holistic development.
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-role">Research Intern – Dept. of Zoology</div>
-            <div class="timeline-meta">
-              Sri Venkateswara College, University of Delhi · 2020–2021
-            </div>
-            <div class="timeline-desc">
-              Worked on analysis of raw sequencing data of cancer-specific genes related to eyelid tumors.
-              Gained experience in data interpretation and scientific thinking, enriching classroom explanations
-              with real-world context.
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-role">Vice President – Biology Society “Chrysalis”</div>
-            <div class="timeline-meta">
-              Sri Venkateswara College, University of Delhi
-            </div>
-            <div class="timeline-desc">
-              Coordinated seminars, workshops and field visits; managed student events and facilitated
-              communication between faculty and students, strengthening organisational and leadership skills.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- EDUCATION & INTERESTS -->
-    <div class="card" id="education">
-      <div class="card-inner">
-        <div class="section-label">Education & Interests</div>
-        <div class="section-title">Academic Path</div>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-role">B.Ed. (Pursuing – 2nd Year)</div>
-            <div class="timeline-meta">SCERT, GGSIPU · Result Awaited (2025)</div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-role">B.Sc. (Hons.) Biological Science – 88.96%</div>
-            <div class="timeline-meta">
-              Sri Venkateswara College, University of Delhi · 2021
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-role">Class 12th – 88.4% (CBSE)</div>
-            <div class="timeline-meta">
-              Army Public School, Shankar Vihar · 2018
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-role">Class 10th – 90.25% (CBSE)</div>
-            <div class="timeline-meta">
-              Army Public School, Shankar Vihar · 2016
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top: 0.9rem;">
-          <div class="info-label">Beyond the Classroom</div>
-          <div class="info-value" style="font-size: 0.75rem; margin-top: 0.25rem;">
-            I enjoy writing poems, playing badminton and basketball, and watching travel vlogs.
-            These interests keep me creative, active and open to new perspectives – qualities that
-            I bring into my teaching as well.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<canvas class="code-rain" id="codeRain"></canvas>
+<header id="header">
+<nav>
+<a href="#hero" class="logo">SR</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="#hero" class="active">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#achievements">Achievements</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+<div class="hamburger" id="hamburger">
+<span></span>
+<span></span>
+<span></span>
 </div>
+</nav>
+</header>
+
+<main>
+<section id="hero">
+<div class="hero-content fade-in">
+<p class="hero-greeting">Hello, I'm</p>
+<h1 class="hero-title"><span class="name">Sonam Rawal</span></h1>
+<p class="hero-subtitle">Integrated Science Facilitator</p>
+<p class="hero-description">A technologically adept and forward-looking educator equipped with 21st-century ICT skills. Driven by curiosity, resilience, and a growth mindset to inspire minds, empower learners, and create lasting positive impact.</p>
+<div class="hero-cta">
+<a href="#contact" class="btn">Get In Touch</a>
+<a href="#" class="btn btn-outline" id="downloadResume">Download Resume</a>
+</div>
+<div class="stats-grid">
+<div class="stat-card reveal">
+<div class="stat-number">88.96%</div>
+<div class="stat-label">B.Sc. Score</div>
+</div>
+<div class="stat-card reveal">
+<div class="stat-number">116</div>
+<div class="stat-label">CTET Marks</div>
+</div>
+<div class="stat-card reveal">
+<div class="stat-number">35th</div>
+<div class="stat-label">UPSC CDSE Rank</div>
+</div>
+<div class="stat-card reveal">
+<div class="stat-number">88.3%</div>
+<div class="stat-label">B.Ed. Score</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+<div class="section-header reveal">
+<span class="section-tag">Introduction</span>
+<h2 class="section-title">About Me</h2>
+<p class="section-subtitle">Passionate educator committed to fostering innovation and continuous growth</p>
+</div>
+<div class="about-content">
+<div class="about-image reveal">
+<div class="profile-photo">
+<!-- REPLACE WITH YOUR PHOTO: Add your image URL below -->
+<img src="s1.jpg" alt="Sonam Rawal Profile Photo">
+<div class="profile-placeholder">👩‍🏫</div>
+</div>
+</div>
+<div class="about-text reveal">
+<h3>Career Objective</h3>
+<p>A technologically adept and forward-looking student teacher, equipped with 21st-century ICT skills, a disciplined work approach, and unwavering diligence. I seek to contribute to an organization that seamlessly blends knowledge with innovation, fosters continuous professional development, and offers opportunities to leverage and sharpen my competencies.</p>
+<p>Driven by curiosity, resilience, and a growth mindset, I constantly strive to evolve as an educator who is dynamic, visionary, and adaptable to the changing needs of society. My ultimate purpose is not merely to build a career, but to inspire minds, empower learners, and create a lasting, positive impact on countless lives.</p>
+<div class="contact-info">
+<div class="contact-item">
+<span class="contact-icon">📞</span>
+<span>8800911258</span>
+</div>
+<div class="contact-item">
+<span class="contact-icon">✉️</span>
+<span>sonamrawal11@gmail.com</span>
+</div>
+<div class="contact-item">
+<span class="contact-icon">📍</span>
+<span>Main Sagarpur, South West Delhi-110046</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="education">
+<div class="container">
+<div class="section-header reveal">
+<span class="section-tag">Academic Journey</span>
+<h2 class="section-title">Education</h2>
+<p class="section-subtitle">Building a strong foundation through excellence in academics</p>
+</div>
+<div class="education-timeline">
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<span class="timeline-year">2023 – 2025</span>
+<h3 class="timeline-degree">Bachelor in Education (B.Ed.)</h3>
+<p class="timeline-institution">State Council of Educational Research and Training (SCERT) | GGSIPU</p>
+<div class="timeline-details">
+<p><strong>Percentage:</strong> 88.3%</p>
+<p><strong>CTET Qualified:</strong> 116 Marks</p>
+<p><strong>Subject 1:</strong> Integrated Science Pedagogy</p>
+<p><strong>Subject 2:</strong> English Pedagogy</p>
+</div>
+</div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<span class="timeline-year">2018 – 2021</span>
+<h3 class="timeline-degree">Bachelor of Science [B.Sc.(H) Biological Sciences]</h3>
+<p class="timeline-institution">Sri Venkateswara College | University of Delhi</p>
+<div class="timeline-details">
+<p><strong>Percentage:</strong> 88.96%</p>
+<p><strong>Achievement:</strong> 2nd Position in University of Delhi</p>
+</div>
+</div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<span class="timeline-year">2017 – 2018</span>
+<h3 class="timeline-degree">Senior Secondary (XII)</h3>
+<p class="timeline-institution">Army Public School, Shankar Vihar</p>
+<div class="timeline-details">
+<p><strong>Percentage:</strong> 88.4%</p>
+<p><strong>Subjects:</strong> Physics, Chemistry, Biology, Psychology, English</p>
+<p><strong>Special Achievement:</strong> Chemistry Topper (95/100)</p>
+</div>
+</div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<span class="timeline-year">2015 – 2016</span>
+<h3 class="timeline-degree">Secondary (X)</h3>
+<p class="timeline-institution">Army Public School, Shankar Vihar</p>
+<div class="timeline-details">
+<p><strong>Percentage:</strong> 90.25%</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="skills" style="background:var(--card)">
+<div class="container">
+<div class="section-header reveal">
+<span class="section-tag">Competencies</span>
+<h2 class="section-title">Skills & Expertise</h2>
+<p class="section-subtitle">A diverse skill set for modern education</p>
+</div>
+<div class="skills-grid">
+<div class="skill-category reveal">
+<h3>💼 Soft Skills</h3>
+<ul class="skill-list">
+<li class="skill-item"><span>Leadership</span><span class="skill-level">Expert</span></li>
+<li class="skill-item"><span>Time Management</span><span class="skill-level">Expert</span></li>
+<li class="skill-item"><span>Critical Thinking</span><span class="skill-level">Expert</span></li>
+<li class="skill-item"><span>Effective Communication</span><span class="skill-level">Expert</span></li>
+<li class="skill-item"><span>Team Work</span><span class="skill-level">Expert</span></li>
+</ul>
+</div>
+<div class="skill-category reveal">
+<h3>💻 Tech Skills</h3>
+<ul class="skill-list">
+<li class="skill-item"><span>Microsoft Office</span><span class="skill-level">Expert</span></li>
+<li class="skill-item"><span>Google Classroom</span><span class="skill-level">Expert</span></li>
+<li class="skill-item"><span>Zoom</span><span class="skill-level">Expert</span></li>
+<li class="skill-item"><span>Canva</span><span class="skill-level">Expert</span></li>
+<li class="skill-item"><span>Prezi</span><span class="skill-level">Expert</span></li>
+</ul>
+</div>
+<div class="skill-category reveal">
+<h3>🗣️ Languages</h3>
+<ul class="skill-list">
+<li class="skill-item"><span>Hindi</span><span class="skill-level">Fluent</span></li>
+<li class="skill-item"><span>English</span><span class="skill-level">Fluent</span></li>
+<li class="skill-item"><span>German</span><span class="skill-level">Basic</span></li>
+</ul>
+</div>
+<div class="skill-category reveal">
+<h3>🏅 Sports</h3>
+<ul class="skill-list">
+<li class="skill-item"><span>Volleyball</span><span class="skill-level">2024-25</span></li>
+<li class="skill-item"><span>Badminton</span><span class="skill-level">2017-21</span></li>
+<li class="skill-item"><span>Football</span><span class="skill-level">2014-16</span></li>
+<li class="skill-item"><span>Handball</span><span class="skill-level">2014-16</span></li>
+<li class="skill-item"><span>Basketball</span><span class="skill-level">2014-16</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="achievements">
+<div class="container">
+<div class="section-header reveal">
+<span class="section-tag">Recognition</span>
+<h2 class="section-title">Achievements & Honors</h2>
+<p class="section-subtitle">Milestones of dedication and excellence</p>
+</div>
+<div class="achievements-grid">
+<div class="achievement-card reveal">
+<div class="achievement-icon">🏆</div>
+<h3 class="achievement-title">35th Rank in UPSC CDSE (1) 2024</h3>
+<p class="achievement-desc">Exceptional performance in one of India's most competitive defense service examinations</p>
+</div>
+<div class="achievement-card reveal">
+<div class="achievement-icon">✅</div>
+<h3 class="achievement-title">CTET Qualified - 116/150 Marks</h3>
+<p class="achievement-desc">Central Teacher Eligibility Test qualification demonstrating teaching competency</p>
+</div>
+<div class="achievement-card reveal">
+<div class="achievement-icon">🎖️</div>
+<h3 class="achievement-title">91st Rank in UPSC CDSE (1) 2023</h3>
+<p class="achievement-desc">Consistent excellence in defense service examinations</p>
+</div>
+<div class="achievement-card reveal">
+<div class="achievement-icon">🥈</div>
+<h3 class="achievement-title">2nd Position in University of Delhi</h3>
+<p class="achievement-desc">Secured university-level second rank in B.Sc.(H) Biological Sciences (2021)</p>
+</div>
+<div class="achievement-card reveal">
+<div class="achievement-icon">⚗️</div>
+<h3 class="achievement-title">Chemistry Topper - 12th Grade</h3>
+<p class="achievement-desc">School topper with 95/100 marks in Chemistry</p>
+</div>
+<div class="achievement-card reveal">
+<div class="achievement-icon">📚</div>
+<h3 class="achievement-title">Overall Topper - Medical Stream</h3>
+<p class="achievement-desc">Topped the medical stream (PCB) in 11th grade</p>
+</div>
+<div class="achievement-card reveal">
+<div class="achievement-icon">🥇</div>
+<h3 class="achievement-title">Zonal Handball Champion</h3>
+<p class="achievement-desc">Won 1st position in zonal handball competition for 3 consecutive years</p>
+</div>
+<div class="achievement-card reveal">
+<div class="achievement-icon">✍️</div>
+<h3 class="achievement-title">3rd Position in Story Writing</h3>
+<p class="achievement-desc">Literary Week competition at SCERT, Delhi (2024)</p>
+</div>
+<div class="achievement-card reveal">
+<div class="achievement-icon">👑</div>
+<h3 class="achievement-title">Sports Captain</h3>
+<p class="achievement-desc">Sports Captain of Chanakya (Green) House, APS Shankar Vihar (2016-17)</p>
+</div>
+<div class="achievement-card reveal">
+<div class="achievement-icon">🎤</div>
+<h3 class="achievement-title">Vice President - Crysalis Society</h3>
+<p class="achievement-desc">Biological Science Department, Sri Venkateswara College (2020-21)</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="hobbies" style="background:var(--card)">
+<div class="container">
+<div class="section-header reveal">
+<span class="section-tag">Interests</span>
+<h2 class="section-title">Hobbies & Passions</h2>
+<p class="section-subtitle">Beyond the classroom</p>
+</div>
+<div class="hobbies-grid">
+<div class="hobby-card reveal">
+<div class="hobby-icon">💃</div>
+<div class="hobby-name">Dancing</div>
+</div>
+<div class="hobby-card reveal">
+<div class="hobby-icon">✍️</div>
+<div class="hobby-name">Writing Poems</div>
+</div>
+<div class="hobby-card reveal">
+<div class="hobby-icon">🌍</div>
+<div class="hobby-name">Watching Travel Vlogs</div>
+</div>
+<div class="hobby-card reveal">
+<div class="hobby-icon">🏸</div>
+<div class="hobby-name">Playing Badminton</div>
+</div>
+<div class="hobby-card reveal">
+<div class="hobby-icon">🌐</div>
+<div class="hobby-name">Reading Geopolitics</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<div class="section-header reveal">
+<span class="section-tag">Connect</span>
+<h2 class="section-title">Get In Touch</h2>
+<p class="section-subtitle">Let's collaborate and create impact together</p>
+</div>
+<div class="contact-section reveal">
+<form class="contact-form" id="contactForm">
+<div class="form-group">
+<label for="name">Your Name</label>
+<input type="text" id="name" name="name" required placeholder="Enter your full name">
+</div>
+<div class="form-group">
+<label for="email">Email Address</label>
+<input type="email" id="email" name="email" required placeholder="your.email@example.com">
+</div>
+<div class="form-group">
+<label for="message">Message</label>
+<textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
+</div>
+<button type="submit" class="btn">Send Message</button>
+</form>
+<div class="social-links">
+<a href="tel:8800911258" class="social-link">
+<span class="social-icon">📞</span>
+<span>Call Me</span>
+</a>
+<a href="mailto:sonamrawal11@gmail.com" class="social-link">
+<span class="social-icon">✉️</span>
+<span>Email Me</span>
+</a>
+<a href="https://linkedin.com" class="social-link" target="_blank">
+<span class="social-icon">💼</span>
+<span>LinkedIn</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
 
 <footer>
-  <span>© 2025 · Sonam Rawal</span>
-  <span>Portfolio designed for school & academic opportunities</span>
+<p>© 2025 Sonam Rawal | Integrated Science Facilitator | Main Sagarpur, South West Delhi</p>
+<p style="margin-top:10px;font-size:14px">Designed with passion for education and innovation</p>
 </footer>
 
+<script>
+const canvas=document.getElementById('codeRain');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+const scienceTerms=[
+'F=ma','E=mc²','v=u+at','PV=nRT','pH=-log[H⁺]','C₆H₁₂O₆','H₂O','CO₂','NaCl','HCl',
+'Newton\'s Law','Ohm\'s Law','Boyle\'s Law','Mitochondria','Chloroplast','Photosynthesis',
+'Respiration','Kinetic Energy','Potential Energy','Momentum','Velocity','Acceleration',
+'Oxidation','Reduction','Catalyst','Enzyme','Protein','DNA','RNA','ATP','Glucose',
+'Electron','Proton','Neutron','Atom','Molecule','Cell','Nucleus','Ribosome',
+'Fe₂O₃','CaCO₃','2H₂+O₂→2H₂O','6CO₂+6H₂O→C₆H₁₂O₆','Mitosis','Meiosis',
+'Krebs Cycle','Glycolysis','Diffusion','Osmosis','Homeostasis','Metabolism',
+'Atomic Mass','Valency','Periodic Table','s=ut+½at²','W=Fd','KE=½mv²',
+'Hydrogen','Oxygen','Carbon','Nitrogen','Calcium','Sodium','Potassium','Iron',
+'Chlorophyll','Hemoglobin','Carbohydrate','Lipid','Nucleic Acid','Amino Acid',
+'Light Year','Gravity','Density','Pressure','Temperature','Enthalpy','Entropy'
+];
+
+const fontSize=14;
+const columns=Math.floor(canvas.width/100);
+const drops=[];
+const speeds=[];
+const texts=[];
+const colors=['#64ffda','#7ee787','#ffab70','#c792ea','#82aaff'];
+
+for(let i=0;i<columns;i++){
+drops[i]=Math.floor(Math.random()*-50);
+speeds[i]=Math.random()*0.4+0.2;
+texts[i]=scienceTerms[Math.floor(Math.random()*scienceTerms.length)];
+}
+
+function drawRain(){
+ctx.fillStyle='rgba(10,22,40,0.08)';
+if(document.documentElement.getAttribute('data-theme')==='light'){
+ctx.fillStyle='rgba(248,249,250,0.15)';
+}
+ctx.fillRect(0,0,canvas.width,canvas.height);
+ctx.font='bold '+fontSize+'px "Courier New", monospace';
+
+for(let i=0;i<drops.length;i++){
+const text=texts[i];
+const color=colors[Math.floor(Math.random()*colors.length)];
+ctx.fillStyle=color;
+ctx.globalAlpha=0.7;
+ctx.fillText(text,i*100+10,drops[i]*20);
+ctx.globalAlpha=1;
+
+if(drops[i]*20>canvas.height&&Math.random()>0.98){
+drops[i]=0;
+texts[i]=scienceTerms[Math.floor(Math.random()*scienceTerms.length)];
+}
+drops[i]+=speeds[i];
+}
+}
+setInterval(drawRain,50);
+window.addEventListener('resize',()=>{
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+});
+
+const themeToggle=document.getElementById('themeToggle');
+const savedTheme=localStorage.getItem('theme')||'dark';
+document.documentElement.setAttribute('data-theme',savedTheme);
+themeToggle.textContent=savedTheme==='dark'?'🌙':'☀️';
+themeToggle.addEventListener('click',()=>{
+const current=document.documentElement.getAttribute('data-theme');
+const next=current==='dark'?'light':'dark';
+document.documentElement.setAttribute('data-theme',next);
+localStorage.setItem('theme',next);
+themeToggle.textContent=next==='dark'?'🌙':'☀️';
+});
+
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.getElementById('navLinks');
+hamburger.addEventListener('click',()=>{
+hamburger.classList.toggle('active');
+navLinks.classList.toggle('active');
+});
+document.querySelectorAll('.nav-links a').forEach(link=>{
+link.addEventListener('click',()=>{
+hamburger.classList.remove('active');
+navLinks.classList.remove('active');
+});
+});
+
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>{
+if(window.scrollY>100)header.classList.add('scrolled');
+else header.classList.remove('scrolled');
+});
+
+const sections=document.querySelectorAll('section');
+const navLinksAll=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+let current='';
+sections.forEach(section=>{
+const sectionTop=section.offsetTop;
+if(scrollY>=sectionTop-200)current=section.getAttribute('id');
+});
+navLinksAll.forEach(link=>{
+link.classList.remove('active');
+if(link.getAttribute('href')==='#'+current)link.classList.add('active');
+});
+});
+
+const revealElements=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting)entry.target.classList.add('revealed');
+});
+},{threshold:0.1});
+revealElements.forEach(el=>observer.observe(el));
+
+document.getElementById('contactForm').addEventListener('submit',(e)=>{
+e.preventDefault();
+const formData={
+name:document.getElementById('name').value,
+email:document.getElementById('email').value,
+message:document.getElementById('message').value
+};
+console.log('Form submitted:',formData);
+alert('Thank you for your message! I will get back to you soon.');
+e.target.reset();
+});
+
+document.getElementById('downloadResume').addEventListener('click',(e)=>{
+e.preventDefault();
+const resumeContent=`
+SONAM RAWAL
+Integrated Science Facilitator
+Phone: 8800911258 | Email: sonamrawal11@gmail.com
+Address: Main Sagarpur, South West Delhi-110046
+
+CAREER OBJECTIVE
+A technologically adept and forward-looking student teacher, equipped with 21st-century ICT skills, a disciplined work approach, and unwavering diligence. Driven by curiosity, resilience, and a growth mindset to inspire minds, empower learners, and create lasting positive impact.
+
+EDUCATION
+Bachelor in Education (B.Ed.) | 2023-2025
+SCERT, GGSIPU | Percentage: 88.3%
+CTET Qualified: 116 Marks
+Subjects: Integrated Science Pedagogy, English Pedagogy
+
+Bachelor of Science (Biological Sciences) | 2018-2021
+Sri Venkateswara College, University of Delhi | Percentage: 88.96%
+Achievement: 2nd Position in University of Delhi
+
+Senior Secondary (XII) | 2017-2018
+Army Public School, Shankar Vihar | Percentage: 88.4%
+Subjects: Physics, Chemistry, Biology, Psychology, English
+
+Secondary (X) | 2015-2016
+Army Public School, Shankar Vihar | Percentage: 90.25%
+
+KEY ACHIEVEMENTS
+• 35th Rank in UPSC CDSE (1) 2024
+• CTET Qualified with 116/150 Marks
+• 91st Rank in UPSC CDSE (1) 2023
+• 2nd Position in University of Delhi - B.Sc. Biological Sciences
+• Chemistry Topper (95/100) - Class 12
+• Overall Topper Medical Stream (PCB) - Class 11
+• Zonal Handball Champion - 1st Position (3 consecutive years)
+• Sports Captain - Chanakya House, APS (2016-17)
+• Vice President - Crysalis Society, SVC (2020-21)
+
+SKILLS
+Soft Skills: Leadership, Time Management, Critical Thinking, Communication, Teamwork
+Tech Skills: Microsoft Office, Google Classroom, Zoom, Canva, Prezi (Expert Level)
+Languages: Hindi (Fluent), English (Fluent), German (Basic)
+
+SPORTS & ACTIVITIES
+Volleyball (2024-25), Badminton (2017-21), Football (2014-16), 
+Handball (2014-16), Basketball (2014-16)
+
+HOBBIES
+Dancing, Writing Poems, Watching Travel Vlogs, Playing Badminton, Reading Geopolitics
+`;
+const blob=new Blob([resumeContent],{type:'text/plain'});
+const url=URL.createObjectURL(blob);
+const a=document.createElement('a');
+a.href=url;
+a.download='Sonam_Rawal_Resume.txt';
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+URL.revokeObjectURL(url);
+alert('Resume downloaded successfully!');
+});
+</script>
 </body>
 </html>
